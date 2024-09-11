@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS Docker Image
 
-## Getting Started
+![Cover Image](.github/cover.png)
 
-First, run the development server:
+Docker image created for Development and Production environments with NextJS.
+
+Image size is around 450 MB(100MB docker image + dependencies), couldn't get it smaller than that cause its for development and production environment both. You can find better images for production only.
+
+## Features
+
+- Development and Production environments
+- Hot reloading
+- `.env` and `.env.local` automatically loaded if they exist
+- simple `make` commands to start the container
+
+## Requirements
+
+You need to have Docker installed in your machine. You can download it [here](https://www.docker.com/products/docker-desktop).
+
+Also you need to have `make` installed in your machine.
+for MacOS you can install it using `brew`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+brew install make
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+for windows you can install it using `chocolatey`:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+choco install make
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+tutorial for installing `make` in windows can be found [here](https://leangaurav.medium.com/how-to-setup-install-gnu-make-on-windows-324480f1da69)
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+### Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+make up
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Production
 
-## Deploy on Vercel
+```bash
+make prod
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Runnings the above commands will start the container and the application will be available at `http://localhost:3000` for development and `http://localhost:8080` for production.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To stop the container:
+
+```bash
+ctrl + c
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Note
+
+> To use the Image provided by Nextjs you need to have `sharp` as a dependency in your project. If you don't have it, you can install it using the following command:
+
+```bash
+npm install sharp
+```
