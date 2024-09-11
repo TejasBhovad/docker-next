@@ -6,6 +6,14 @@ Docker image created for Development and Production environments with NextJS.
 
 Image size is around 450 MB(100MB docker image + dependencies), couldn't get it smaller than that cause its for development and production environment both. You can find better images for production only.
 
+> Add `.env` or `.env.local` file in the root of your project with the following content:
+
+```bash
+NEXT_PUBLIC_ENV="Something"
+```
+
+> or Uncomment code in `page.js` to prevent the error of `NEXT_PUBLIC_ENV` not found.
+
 ## Features
 
 - Development and Production environments
